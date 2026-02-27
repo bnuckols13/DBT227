@@ -1,0 +1,2501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standing in Your Worth — DBT Self-Respect Effectiveness</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary-teal: #5EEAD4;
+            --deep-teal: #14B8A6;
+            --sage: #87A878;
+            --soft-purple: #C084FC;
+            --warm-rose: #FDA4AF;
+            --calm-blue: #93C5FD;
+            --midnight: #1E293B;
+            --slate: #475569;
+            --pearl: #F8FAFC;
+            --cream: #FFF8E7;
+            --gold: #D4A574;
+            --deep-gold: #B8860B;
+            --parchment: #F5F0E8;
+            --ink: #2C1810;
+            --gradient-calm: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-nature: linear-gradient(135deg, #5EEAD4 0%, #93C5FD 100%);
+            --gradient-warm: linear-gradient(135deg, #FDA4AF 0%, #C084FC 100%);
+            --gradient-gold: linear-gradient(135deg, #D4A574 0%, #B8860B 100%);
+            --gradient-earth: linear-gradient(135deg, #87A878 0%, #7BA7BC 100%);
+        }
+
+        body {
+            font-family: 'EB Garamond', Georgia, serif;
+            background: var(--parchment);
+            min-height: 100vh;
+            color: var(--ink);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Subtle parchment texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(135, 168, 120, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(192, 132, 252, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Floating rune elements */
+        .bg-rune {
+            position: fixed;
+            font-size: 4rem;
+            opacity: 0.04;
+            animation: drift 30s infinite ease-in-out;
+            pointer-events: none;
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+        }
+        .bg-rune:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .bg-rune:nth-child(2) { top: 40%; right: 8%; animation-delay: -8s; }
+        .bg-rune:nth-child(3) { bottom: 15%; left: 15%; animation-delay: -16s; }
+        .bg-rune:nth-child(4) { top: 70%; right: 20%; animation-delay: -22s; }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(15px, -20px) rotate(3deg); }
+            66% { transform: translate(-10px, 15px) rotate(-2deg); }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(245,240,232,0.9) 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+        }
+
+        .header-symbol {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.7;
+            letter-spacing: 0.5rem;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .subtitle {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--slate);
+            font-style: italic;
+        }
+
+        .quote-block {
+            margin-top: 1.5rem;
+            padding: 1rem 2rem;
+            border-left: 3px solid var(--gold);
+            background: rgba(212, 165, 116, 0.06);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--slate);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .quote-block cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-style: normal;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.05em;
+        }
+
+        /* Navigation */
+        .nav-container {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-pill {
+            padding: 0.65rem 1.5rem;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.8);
+            border: 1.5px solid rgba(212, 165, 116, 0.25);
+            color: var(--slate);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        .nav-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.15);
+            border-color: var(--gold);
+        }
+
+        .nav-pill.active {
+            background: var(--gradient-gold);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        /* Page system */
+        .page { display: none; animation: fadeIn 0.5s ease; }
+        .page.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255,255,255,0.85);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-nature);
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.07);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--gradient-nature);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: 0.03em;
+        }
+
+        .card-desc {
+            color: var(--slate);
+            line-height: 1.75;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Pass option banner */
+        .pass-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            background: rgba(135, 168, 120, 0.08);
+            border: 1px solid rgba(135, 168, 120, 0.2);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--sage);
+        }
+
+        .pass-option .pass-symbol {
+            font-size: 1.2rem;
+        }
+
+        /* ============================================ */
+        /*  CHECK-IN SECTION                            */
+        /* ============================================ */
+
+        .checkin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .weather-option {
+            padding: 1.25rem;
+            background: rgba(245, 240, 232, 0.6);
+            border: 2px solid transparent;
+            border-radius: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .weather-option:hover {
+            background: rgba(255,255,255,0.9);
+            border-color: rgba(212, 165, 116, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .weather-option.selected {
+            background: rgba(94, 234, 212, 0.08);
+            border-color: var(--deep-teal);
+        }
+
+        .weather-option .weather-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .weather-option .weather-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.25rem;
+        }
+
+        .weather-option .weather-desc {
+            font-size: 0.85rem;
+            color: var(--slate);
+            font-style: italic;
+        }
+
+        .dialectic-bridge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, rgba(192, 132, 252, 0.06) 0%, rgba(94, 234, 212, 0.06) 100%);
+            border-radius: 16px;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .dialectic-side {
+            flex: 1;
+            min-width: 180px;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1rem;
+            color: var(--slate);
+            font-style: italic;
+        }
+
+        .dialectic-and {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--deep-teal);
+            padding: 0.5rem 1.25rem;
+            background: rgba(94, 234, 212, 0.1);
+            border-radius: 50px;
+        }
+
+        /* ============================================ */
+        /*  PSYCHOEDUCATION SECTION                     */
+        /* ============================================ */
+
+        .expandable-section {
+            margin-bottom: 1rem;
+        }
+
+        .expandable-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem;
+            background: rgba(245, 240, 232, 0.7);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .expandable-header:hover {
+            background: rgba(255,255,255,0.9);
+            border-color: rgba(212, 165, 116, 0.3);
+        }
+
+        .expandable-header.open {
+            border-radius: 14px 14px 0 0;
+            border-bottom: none;
+            background: rgba(255,255,255,0.95);
+        }
+
+        .expand-arrow {
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+            color: var(--gold);
+        }
+
+        .expand-arrow.rotated { transform: rotate(90deg); }
+
+        .expandable-header h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--ink);
+            flex: 1;
+        }
+
+        .expandable-header .header-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: var(--gradient-nature);
+            color: white;
+            border-radius: 50px;
+            letter-spacing: 0.05em;
+        }
+
+        .expandable-body {
+            display: none;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.95);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            border-top: none;
+            border-radius: 0 0 14px 14px;
+            animation: slideDown 0.3s ease;
+        }
+
+        .expandable-body.open { display: block; }
+
+        @keyframes slideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
+        }
+
+        .expandable-body p {
+            color: var(--slate);
+            line-height: 1.75;
+            margin-bottom: 1rem;
+            font-size: 1.02rem;
+        }
+
+        .key-insight {
+            padding: 1rem 1.25rem;
+            background: rgba(94, 234, 212, 0.06);
+            border-left: 3px solid var(--deep-teal);
+            border-radius: 0 10px 10px 0;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        .body-prompt {
+            padding: 1rem 1.25rem;
+            background: rgba(253, 164, 175, 0.06);
+            border-left: 3px solid var(--warm-rose);
+            border-radius: 0 10px 10px 0;
+            margin: 1rem 0;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        .body-prompt strong {
+            color: var(--warm-rose);
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Boundary spectrum */
+        .spectrum-container {
+            margin: 1.5rem 0;
+        }
+
+        .spectrum-bar {
+            height: 12px;
+            background: linear-gradient(90deg, var(--warm-rose) 0%, var(--primary-teal) 50%, var(--soft-purple) 100%);
+            border-radius: 10px;
+            position: relative;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .spectrum-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--slate);
+            font-style: italic;
+        }
+
+        /* ============================================ */
+        /*  SKILL CARDS SECTION                         */
+        /* ============================================ */
+
+        .skill-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .skill-card {
+            perspective: 1000px;
+            height: 380px;
+            cursor: pointer;
+        }
+
+        .skill-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .skill-card.flipped .skill-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .skill-card-front, .skill-card-back {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid rgba(212, 165, 116, 0.25);
+        }
+
+        .skill-card-front {
+            background: linear-gradient(160deg, rgba(255,255,255,0.95) 0%, var(--parchment) 100%);
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .skill-card-back {
+            background: linear-gradient(160deg, rgba(255,255,255,0.98) 0%, rgba(245,240,232,0.95) 100%);
+            transform: rotateY(180deg);
+            overflow-y: auto;
+        }
+
+        .card-rarity {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+        }
+
+        .rarity-core {
+            background: var(--gradient-nature);
+            color: white;
+        }
+
+        .rarity-advanced {
+            background: var(--gradient-warm);
+            color: white;
+        }
+
+        .rarity-mastery {
+            background: var(--gradient-gold);
+            color: white;
+        }
+
+        .card-letter {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-skill-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.04em;
+        }
+
+        .card-skill-short {
+            font-size: 0.95rem;
+            color: var(--slate);
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .card-symbol {
+            font-size: 1.5rem;
+            opacity: 0.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .flip-hint {
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+
+        .skill-card-back h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--deep-teal);
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.03em;
+        }
+
+        .skill-card-back p {
+            font-size: 0.92rem;
+            color: var(--slate);
+            line-height: 1.65;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-card-back .practice-prompt {
+            padding: 0.75rem;
+            background: rgba(94, 234, 212, 0.06);
+            border-radius: 10px;
+            border-left: 3px solid var(--deep-teal);
+            margin-top: 0.5rem;
+            font-size: 0.88rem;
+            color: var(--slate);
+            font-style: italic;
+        }
+
+        .collected-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            width: 28px;
+            height: 28px;
+            background: var(--gradient-nature);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .skill-card.collected .collected-badge { opacity: 1; }
+
+        .collect-btn {
+            margin-top: auto;
+            padding: 0.5rem 1.25rem;
+            background: var(--gradient-nature);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+            align-self: center;
+        }
+
+        .collect-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(94, 234, 212, 0.3);
+        }
+
+        .collect-btn.collected-state {
+            background: rgba(94, 234, 212, 0.15);
+            color: var(--deep-teal);
+        }
+
+        /* Collection tracker */
+        .collection-tracker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(245, 240, 232, 0.6);
+            border-radius: 14px;
+            margin-bottom: 1.5rem;
+        }
+
+        .tracker-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--slate);
+            letter-spacing: 0.05em;
+        }
+
+        .tracker-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tracker-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(212, 165, 116, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tracker-dot.filled {
+            background: var(--gradient-nature);
+            box-shadow: 0 2px 8px rgba(94, 234, 212, 0.3);
+        }
+
+        /* ============================================ */
+        /*  ROLE-PLAY SCENARIOS                         */
+        /* ============================================ */
+
+        .scenario-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .scenario-option {
+            padding: 1.5rem;
+            background: rgba(245, 240, 232, 0.6);
+            border: 2px solid transparent;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scenario-option:hover {
+            background: rgba(255,255,255,0.9);
+            border-color: rgba(212, 165, 116, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .scenario-option.selected {
+            background: rgba(94, 234, 212, 0.06);
+            border-color: var(--deep-teal);
+        }
+
+        .scenario-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            background: var(--gradient-warm);
+            color: white;
+            border-radius: 50px;
+            letter-spacing: 0.08em;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .scenario-option h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .scenario-option p {
+            font-size: 0.92rem;
+            color: var(--slate);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Active scenario workspace */
+        .scenario-workspace {
+            display: none;
+            margin-top: 1.5rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .scenario-workspace.active { display: block; }
+
+        .scenario-scene {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(192, 132, 252, 0.05) 0%, rgba(94, 234, 212, 0.05) 100%);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--soft-purple);
+        }
+
+        .scenario-scene h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--ink);
+            margin-bottom: 0.75rem;
+        }
+
+        .scenario-scene p {
+            color: var(--slate);
+            line-height: 1.75;
+            font-size: 1rem;
+        }
+
+        .response-builder {
+            margin-top: 1.5rem;
+        }
+
+        .response-builder label {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.03em;
+        }
+
+        textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(212, 165, 116, 0.2);
+            border-radius: 12px;
+            font-family: 'EB Garamond', serif;
+            font-size: 1rem;
+            background: white;
+            transition: all 0.3s ease;
+            resize: vertical;
+            color: var(--ink);
+        }
+
+        textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--deep-teal);
+            box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.1);
+        }
+
+        textarea { min-height: 100px; }
+
+        .skill-tags-select {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .skill-tag {
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1.5px solid rgba(212, 165, 116, 0.3);
+            background: rgba(245, 240, 232, 0.5);
+            color: var(--slate);
+        }
+
+        .skill-tag:hover {
+            border-color: var(--deep-teal);
+            background: rgba(94, 234, 212, 0.06);
+        }
+
+        .skill-tag.selected {
+            background: var(--gradient-nature);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 2rem;
+            background: var(--gradient-nature);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(94, 234, 212, 0.2);
+            letter-spacing: 0.04em;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(94, 234, 212, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.8);
+            color: var(--deep-teal);
+            border: 1.5px solid rgba(94, 234, 212, 0.3);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(94, 234, 212, 0.06);
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================ */
+        /*  INTEGRATION SECTION                         */
+        /* ============================================ */
+
+        .integration-prompt {
+            padding: 1.5rem;
+            background: rgba(245, 240, 232, 0.6);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .integration-prompt h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--ink);
+            margin-bottom: 0.75rem;
+        }
+
+        .takeaway-card {
+            padding: 1.25rem;
+            background: linear-gradient(135deg, rgba(94, 234, 212, 0.06) 0%, rgba(147, 197, 253, 0.06) 100%);
+            border-radius: 14px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .takeaway-card.show { display: block; animation: fadeIn 0.5s ease; }
+
+        .takeaway-card h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--deep-teal);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .takeaway-card p {
+            color: var(--slate);
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        /* Facilitator notes toggle */
+        .facilitator-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .facilitator-toggle label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            color: var(--slate);
+            letter-spacing: 0.05em;
+            cursor: pointer;
+        }
+
+        .facilitator-switch {
+            width: 44px;
+            height: 24px;
+            background: rgba(212, 165, 116, 0.2);
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .facilitator-switch.on {
+            background: var(--gradient-nature);
+        }
+
+        .facilitator-switch::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .facilitator-switch.on::after { left: 22px; }
+
+        .facilitator-note {
+            display: none;
+            padding: 1rem 1.25rem;
+            background: rgba(212, 165, 116, 0.06);
+            border: 1px dashed rgba(212, 165, 116, 0.3);
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: var(--gold);
+            line-height: 1.7;
+        }
+
+        .facilitator-note.show { display: block; }
+
+        .facilitator-note strong {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* ============================================ */
+        /*  ENHANCED CHECK-IN STYLES                    */
+        /* ============================================ */
+
+        /* Step Tracker */
+        .checkin-step-tracker {
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .step-dot-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .ci-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(212, 165, 116, 0.2);
+            transition: all 0.4s ease;
+            flex-shrink: 0;
+        }
+
+        .ci-dot.active {
+            background: var(--gradient-nature);
+            box-shadow: 0 0 10px rgba(94, 234, 212, 0.3);
+            transform: scale(1.15);
+        }
+
+        .ci-dot.complete {
+            background: var(--gradient-gold);
+            box-shadow: 0 0 8px rgba(212, 165, 116, 0.25);
+        }
+
+        .ci-connector {
+            width: 40px;
+            height: 2px;
+            background: rgba(212, 165, 116, 0.15);
+            flex-shrink: 0;
+        }
+
+        .step-label-row {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 0.5rem;
+        }
+
+        .ci-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            color: rgba(71, 85, 105, 0.4);
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 50px;
+        }
+
+        .ci-label.active {
+            color: var(--deep-teal);
+            font-weight: 600;
+        }
+
+        .ci-label.complete {
+            color: var(--gold);
+        }
+
+        /* Check-in Panels */
+        .checkin-panel {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .checkin-panel.active { display: block; }
+
+        /* Breathing Circle */
+        .breath-guide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .breath-circle {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(94, 234, 212, 0.1) 0%, rgba(135, 168, 120, 0.1) 100%);
+            border: 3px solid rgba(94, 234, 212, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .breath-circle:hover {
+            border-color: var(--deep-teal);
+            box-shadow: 0 0 30px rgba(94, 234, 212, 0.15);
+        }
+
+        .breath-circle.breathing {
+            animation: breathe 8s infinite ease-in-out;
+            cursor: default;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); border-color: rgba(94, 234, 212, 0.25); }
+            25% { transform: scale(1.18); border-color: var(--deep-teal); box-shadow: 0 0 40px rgba(94, 234, 212, 0.2); }
+            50% { transform: scale(1.18); border-color: var(--deep-teal); }
+            75% { transform: scale(1); border-color: rgba(94, 234, 212, 0.25); }
+        }
+
+        .breath-text {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--deep-teal);
+            letter-spacing: 0.05em;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .breath-instruction {
+            color: var(--slate);
+            font-style: italic;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .grounding-prompt {
+            margin-top: 1.5rem;
+            padding: 1.25rem;
+            background: rgba(135, 168, 120, 0.06);
+            border-left: 3px solid var(--sage);
+            border-radius: 0 12px 12px 0;
+            color: var(--slate);
+            line-height: 1.75;
+            font-size: 1rem;
+        }
+
+        .grounding-prompt p { margin-bottom: 0.5rem; }
+        .grounding-prompt p:last-child { margin-bottom: 0; }
+
+        /* Body Scan Grid */
+        .body-scan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .body-area {
+            padding: 0.85rem 1rem;
+            background: rgba(245, 240, 232, 0.6);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .body-area:hover {
+            background: rgba(255,255,255,0.9);
+            border-color: rgba(212, 165, 116, 0.3);
+        }
+
+        .body-area.selected {
+            background: rgba(94, 234, 212, 0.06);
+            border-color: var(--deep-teal);
+        }
+
+        .body-area-icon {
+            font-size: 0.7rem;
+            color: rgba(212, 165, 116, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .body-area.selected .body-area-icon {
+            color: var(--deep-teal);
+        }
+
+        .body-area-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.82rem;
+            color: var(--ink);
+            letter-spacing: 0.03em;
+        }
+
+        .body-area-hint {
+            font-size: 0.78rem;
+            color: var(--slate);
+            font-style: italic;
+            margin-left: auto;
+            opacity: 0.6;
+        }
+
+        /* Nervous System Zone Selector */
+        .zone-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .zone-option {
+            display: flex;
+            gap: 1rem;
+            padding: 1.25rem;
+            border: 2px solid transparent;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-items: flex-start;
+        }
+
+        .zone-option:hover { transform: translateY(-2px); }
+
+        .zone-green {
+            background: rgba(135, 168, 120, 0.06);
+        }
+        .zone-green:hover, .zone-green.selected {
+            border-color: var(--sage);
+            background: rgba(135, 168, 120, 0.1);
+        }
+
+        .zone-yellow {
+            background: rgba(212, 165, 116, 0.06);
+        }
+        .zone-yellow:hover, .zone-yellow.selected {
+            border-color: var(--gold);
+            background: rgba(212, 165, 116, 0.1);
+        }
+
+        .zone-blue {
+            background: rgba(147, 197, 253, 0.06);
+        }
+        .zone-blue:hover, .zone-blue.selected {
+            border-color: var(--calm-blue);
+            background: rgba(147, 197, 253, 0.1);
+        }
+
+        .zone-indicator {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid rgba(0,0,0,0.1);
+            flex-shrink: 0;
+            margin-top: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .zone-green .zone-indicator { background: rgba(135, 168, 120, 0.3); }
+        .zone-yellow .zone-indicator { background: rgba(212, 165, 116, 0.3); }
+        .zone-blue .zone-indicator { background: rgba(147, 197, 253, 0.3); }
+
+        .zone-green.selected .zone-indicator { background: var(--sage); border-color: var(--sage); box-shadow: 0 0 8px rgba(135, 168, 120, 0.4); }
+        .zone-yellow.selected .zone-indicator { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 8px rgba(212, 165, 116, 0.4); }
+        .zone-blue.selected .zone-indicator { background: var(--calm-blue); border-color: var(--calm-blue); box-shadow: 0 0 8px rgba(147, 197, 253, 0.4); }
+
+        .zone-content { flex: 1; }
+
+        .zone-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.35rem;
+            letter-spacing: 0.03em;
+        }
+
+        .zone-desc {
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .zone-signals {
+            font-size: 0.82rem;
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        /* Topic Question */
+        .topic-question-box {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.06) 0%, rgba(192, 132, 252, 0.04) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .topic-question-symbol {
+            font-size: 2rem;
+            color: var(--gold);
+            opacity: 0.4;
+            margin-bottom: 0.75rem;
+        }
+
+        .topic-question-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--ink);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Share Level Options */
+        .topic-share-options {
+            margin-top: 1.5rem;
+            padding: 1.25rem;
+            background: rgba(245, 240, 232, 0.5);
+            border-radius: 14px;
+        }
+
+        .share-options-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .share-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1.5px solid rgba(212, 165, 116, 0.2);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.6);
+        }
+
+        .share-option:hover {
+            border-color: rgba(212, 165, 116, 0.4);
+            background: rgba(255,255,255,0.9);
+        }
+
+        .share-option.selected {
+            border-color: var(--deep-teal);
+            background: rgba(94, 234, 212, 0.06);
+        }
+
+        .share-icon {
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+
+        .share-text {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            color: var(--slate);
+            letter-spacing: 0.04em;
+        }
+
+        .share-option.selected .share-text { color: var(--deep-teal); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .container { padding: 1rem; }
+            .card { padding: 1.5rem; }
+            .nav-container { gap: 0.5rem; }
+            .nav-pill { padding: 0.5rem 1rem; font-size: 0.75rem; }
+            .skill-card { height: 360px; }
+            .skill-cards-grid { grid-template-columns: 1fr; }
+            .step-label-row { gap: 10px; }
+            .ci-connector { width: 20px; }
+            .ci-label { font-size: 0.6rem; min-width: 40px; }
+            .body-scan-grid { grid-template-columns: 1fr; }
+            .body-area-hint { display: none; }
+            .breath-circle { width: 130px; height: 130px; }
+            .topic-question-text { font-size: 1.05rem; }
+            .share-options-row { flex-direction: column; }
+            .zone-option { padding: 1rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Tooltip for skill card info */
+        .info-badge {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            background: rgba(212, 165, 116, 0.1);
+            border-radius: 50px;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Floating decorative runes -->
+<div class="bg-rune" aria-hidden="true">&#5765;</div>
+<div class="bg-rune" aria-hidden="true">&#5768;</div>
+<div class="bg-rune" aria-hidden="true">&#5792;</div>
+<div class="bg-rune" aria-hidden="true">&#5804;</div>
+
+<div class="container">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-symbol" aria-hidden="true">&#9671; &#9674; &#9671;</div>
+        <h1>Standing in Your Worth</h1>
+        <p class="subtitle">DBT Self-Respect Effectiveness &amp; Boundaries</p>
+        <div class="quote-block">
+            "Daring to set boundaries is about having the courage to love ourselves, even when we risk disappointing others."
+            <cite>— Bren&eacute; Brown</cite>
+        </div>
+    </header>
+
+    <!-- Facilitator Notes Toggle -->
+    <div class="facilitator-toggle">
+        <div class="facilitator-switch" id="facToggle" onclick="toggleFacilitator()" role="switch" aria-checked="false" tabindex="0"></div>
+        <label onclick="toggleFacilitator()">Facilitator Notes</label>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-container" role="tablist">
+        <button class="nav-pill active" onclick="showPage(0)" role="tab" aria-selected="true">&#9670; Check-In</button>
+        <button class="nav-pill" onclick="showPage(1)" role="tab">&#9671; Learn</button>
+        <button class="nav-pill" onclick="showPage(2)" role="tab">&#9674; Skill Cards</button>
+        <button class="nav-pill" onclick="showPage(3)" role="tab">&#9656; Practice</button>
+        <button class="nav-pill" onclick="showPage(4)" role="tab">&#10022; Integrate</button>
+    </nav>
+
+    <!-- ============================== -->
+    <!--  PAGE 0: CHECK-IN              -->
+    <!-- ============================== -->
+    <div class="page active" id="page-0">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">&#9678;</div>
+                <h2>Arrival &amp; Check-In</h2>
+            </div>
+            <div class="card-desc">
+                Before we learn anything new, we arrive. This check-in is an invitation to land — in your body, in this room, in this moment. There is nothing to fix right now. Only noticing.
+            </div>
+
+            <div class="pass-option">
+                <span class="pass-symbol">&#9724;</span>
+                As always, you may pass on any part of this experience. Your pace is the right pace.
+            </div>
+
+            <!-- Step Tracker -->
+            <div class="checkin-step-tracker">
+                <div class="step-dot-row">
+                    <span class="ci-dot active" data-ci="0"></span>
+                    <span class="ci-connector"></span>
+                    <span class="ci-dot" data-ci="1"></span>
+                    <span class="ci-connector"></span>
+                    <span class="ci-dot" data-ci="2"></span>
+                    <span class="ci-connector"></span>
+                    <span class="ci-dot" data-ci="3"></span>
+                    <span class="ci-connector"></span>
+                    <span class="ci-dot" data-ci="4"></span>
+                </div>
+                <div class="step-label-row">
+                    <span class="ci-label active" data-ci="0">Breath</span>
+                    <span class="ci-label" data-ci="1">Body</span>
+                    <span class="ci-label" data-ci="2">Zone</span>
+                    <span class="ci-label" data-ci="3">Weather</span>
+                    <span class="ci-label" data-ci="4">Topic</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── STEP 0: GUIDED BREATH ─── -->
+        <div class="checkin-panel active" id="ci-panel-0">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--gradient-earth);">&#9900;</div>
+                    <h2>Three Breaths to Arrive</h2>
+                </div>
+                <p class="card-desc">Let everything else wait. For these next few breaths, you don't need to be anywhere else or do anything else.</p>
+
+                <div class="facilitator-note" data-fac>
+                    <strong>Facilitator:</strong> Guide this live. Speak slowly with pauses between each instruction. Use a warm, grounding tone. "Place your feet on the floor... feel the surface beneath you... we'll take three breaths together." Count the breaths aloud if helpful. This sets the container for everything that follows.
+                </div>
+
+                <div class="breath-guide">
+                    <div class="breath-circle" id="breathCircle" onclick="startBreathing()">
+                        <span class="breath-text" id="breathText">Tap to Begin</span>
+                    </div>
+                    <p class="breath-instruction" id="breathInstruction">Three slow breaths. Follow the circle.</p>
+                </div>
+
+                <div class="grounding-prompt">
+                    <p><strong style="font-family: 'Cinzel', serif; color: var(--gold); font-size: 0.85rem; letter-spacing: 0.05em;">Grounding Invitation:</strong></p>
+                    <p>Feel the weight of your body in the chair. Notice three points of contact — your feet on the floor, your back against the seat, your hands resting where they are. You are here. You are held by gravity. Nothing else is needed right now.</p>
+                </div>
+
+                <div class="btn-row">
+                    <button class="btn" onclick="nextCheckinStep(1)">Continue &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── STEP 1: BODY SCAN ─── -->
+        <div class="checkin-panel" id="ci-panel-1">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--gradient-warm);">&#9832;</div>
+                    <h2>Body Check-In</h2>
+                </div>
+                <p class="card-desc">Without trying to change anything, scan through your body. Where do you notice sensation? Select all that feel true right now.</p>
+
+                <div class="facilitator-note" data-fac>
+                    <strong>Facilitator:</strong> Walk the group through a brief top-down scan: "Start at the top of your head... move down to your forehead... jaw... throat... notice without judging." Give 60-90 seconds. Then invite them to select what they noticed. This builds interoceptive awareness — essential for boundary-setting, since boundaries are often felt in the body before the mind catches up.
+                </div>
+
+                <div class="body-scan-grid">
+                    <div class="body-area" onclick="toggleBodyArea(this)">
+                        <span class="body-area-icon">&#9673;</span>
+                        <span class="body-area-name">Head / Forehead</span>
+                        <span class="body-area-hint">pressure, foggy, clear</span>
+                    </div>
+                    <div class="body-area" onclick="toggleBodyArea(this)">
+                        <span class="body-area-icon">&#9673;</span>
+                        <span class="body-area-name">Jaw / Throat</span>
+                        <span class="body-area-hint">tight, clenched, open</span>
+                    </div>
+                    <div class="body-area" onclick="toggleBodyArea(this)">
+                        <span class="body-area-icon">&#9673;</span>
+                        <span class="body-area-name">Shoulders / Neck</span>
+                        <span class="body-area-hint">tense, raised, heavy</span>
+                    </div>
+                    <div class="body-area" onclick="toggleBodyArea(this)">
+                        <span class="body-area-icon">&#9673;</span>
+                        <span class="body-area-name">Chest / Heart</span>
+                        <span class="body-area-hint">tight, open, racing, warm</span>
+                    </div>
+                    <div class="body-area" onclick="toggleBodyArea(this)">
+                        <span class="body-area-icon">&#9673;</span>
+                        <span class="body-area-name">Stomach / Gut</span>
+                        <span class="body-area-hint">knotted, fluttery, settled</span>
+                    </div>
+                    <div class="body-area" onclick="toggleBodyArea(this)">
+                        <span class="body-area-icon">&#9673;</span>
+                        <span class="body-area-name">Hands</span>
+                        <span class="body-area-hint">tingly, clenched, relaxed</span>
+                    </div>
+                    <div class="body-area" onclick="toggleBodyArea(this)">
+                        <span class="body-area-icon">&#9673;</span>
+                        <span class="body-area-name">Legs / Feet</span>
+                        <span class="body-area-hint">restless, grounded, numb</span>
+                    </div>
+                    <div class="body-area" onclick="toggleBodyArea(this)">
+                        <span class="body-area-icon">&#9673;</span>
+                        <span class="body-area-name">General Calm</span>
+                        <span class="body-area-hint">at ease, settled, still</span>
+                    </div>
+                    <div class="body-area" onclick="toggleBodyArea(this)">
+                        <span class="body-area-icon">&#9673;</span>
+                        <span class="body-area-name">General Tension</span>
+                        <span class="body-area-hint">activated, bracing, tight</span>
+                    </div>
+                    <div class="body-area" onclick="toggleBodyArea(this)">
+                        <span class="body-area-icon">&#9673;</span>
+                        <span class="body-area-name">Numbness</span>
+                        <span class="body-area-hint">disconnected, absent, blank</span>
+                    </div>
+                </div>
+
+                <div class="btn-row">
+                    <button class="btn btn-secondary" onclick="nextCheckinStep(0)">&#8592; Back</button>
+                    <button class="btn" onclick="nextCheckinStep(2)">Continue &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── STEP 2: NERVOUS SYSTEM ZONE ─── -->
+        <div class="checkin-panel" id="ci-panel-2">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #87A878 0%, #93C5FD 100%);">&#9788;</div>
+                    <h2>Where Is Your Nervous System?</h2>
+                </div>
+                <p class="card-desc">Our nervous system moves through different states throughout the day. There's no wrong answer — just honest noticing. Where are you right now?</p>
+
+                <div class="facilitator-note" data-fac>
+                    <strong>Facilitator:</strong> This is polyvagal-informed. Normalize all three zones: "All of these are your body's wisdom. They exist to protect you. Today we're just noticing." For the boundary work ahead, knowing your starting zone matters — someone in shutdown will need different support than someone in hyperactivation when practicing FAST skills.
+                </div>
+
+                <div class="zone-selector">
+                    <div class="zone-option zone-green" onclick="selectZone(this, 'green')">
+                        <div class="zone-indicator"></div>
+                        <div class="zone-content">
+                            <div class="zone-name">Grounded &amp; Present</div>
+                            <div class="zone-desc">Calm, connected, curious. I can think clearly and feel my feelings. My body feels relatively settled.</div>
+                            <div class="zone-signals">Steady breathing &#183; Relaxed muscles &#183; Open posture &#183; Able to make eye contact</div>
+                        </div>
+                    </div>
+                    <div class="zone-option zone-yellow" onclick="selectZone(this, 'yellow')">
+                        <div class="zone-indicator"></div>
+                        <div class="zone-content">
+                            <div class="zone-name">Activated &amp; Alert</div>
+                            <div class="zone-desc">Anxious, on edge, restless. My mind is busy. I might feel the urge to control, fix, or react. Energy is up.</div>
+                            <div class="zone-signals">Shallow breathing &#183; Muscle tension &#183; Racing thoughts &#183; Fidgeting or restlessness</div>
+                        </div>
+                    </div>
+                    <div class="zone-option zone-blue" onclick="selectZone(this, 'blue')">
+                        <div class="zone-indicator"></div>
+                        <div class="zone-content">
+                            <div class="zone-name">Withdrawn &amp; Low</div>
+                            <div class="zone-desc">Shut down, foggy, numb. It's hard to feel much or engage. My energy feels flat or collapsed.</div>
+                            <div class="zone-signals">Shallow or held breath &#183; Heaviness &#183; Disconnect from body &#183; Flat affect</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-row">
+                    <button class="btn btn-secondary" onclick="nextCheckinStep(1)">&#8592; Back</button>
+                    <button class="btn" onclick="nextCheckinStep(3)">Continue &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── STEP 3: INTERNAL WEATHER ─── -->
+        <div class="checkin-panel" id="ci-panel-3">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--gradient-calm);">&#9729;</div>
+                    <h2>Internal Weather</h2>
+                </div>
+                <p class="card-desc">If your inner world were a weather pattern right now, what would it be? Weather changes — it's always passing through.</p>
+
+                <div class="checkin-grid">
+                    <div class="weather-option" onclick="selectWeather(this)">
+                        <span class="weather-icon" aria-hidden="true">&#9788;</span>
+                        <div class="weather-label">Clear Skies</div>
+                        <div class="weather-desc">Calm, open, present</div>
+                    </div>
+                    <div class="weather-option" onclick="selectWeather(this)">
+                        <span class="weather-icon" aria-hidden="true">&#9729;</span>
+                        <div class="weather-label">Partly Cloudy</div>
+                        <div class="weather-desc">Mixed, some things on my mind</div>
+                    </div>
+                    <div class="weather-option" onclick="selectWeather(this)">
+                        <span class="weather-icon" aria-hidden="true">&#9730;</span>
+                        <div class="weather-label">Rainy</div>
+                        <div class="weather-desc">Heavy, sad, low energy</div>
+                    </div>
+                    <div class="weather-option" onclick="selectWeather(this)">
+                        <span class="weather-icon" aria-hidden="true">&#9889;</span>
+                        <div class="weather-label">Stormy</div>
+                        <div class="weather-desc">Intense, activated, overwhelmed</div>
+                    </div>
+                    <div class="weather-option" onclick="selectWeather(this)">
+                        <span class="weather-icon" aria-hidden="true">&#10052;</span>
+                        <div class="weather-label">Foggy</div>
+                        <div class="weather-desc">Uncertain, disconnected, numb</div>
+                    </div>
+                    <div class="weather-option" onclick="selectWeather(this)">
+                        <span class="weather-icon" aria-hidden="true">&#9728;</span>
+                        <div class="weather-label">Sunrise</div>
+                        <div class="weather-desc">Hopeful, warming, emerging</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <label style="display: block; font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.5rem; letter-spacing: 0.03em;">In a word or phrase, describe what's here:</label>
+                    <input type="text" id="weatherWord" placeholder="e.g., buzzing, still, churning, cautiously hopeful..." style="width: 100%; padding: 1rem; border: 2px solid rgba(212, 165, 116, 0.2); border-radius: 12px; font-family: 'EB Garamond', serif; font-size: 1rem; background: white; transition: all 0.3s ease; color: var(--ink);">
+                </div>
+
+                <div class="btn-row">
+                    <button class="btn btn-secondary" onclick="nextCheckinStep(2)">&#8592; Back</button>
+                    <button class="btn" onclick="nextCheckinStep(4)">Continue &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── STEP 4: TOPIC QUESTION ─── -->
+        <div class="checkin-panel" id="ci-panel-4">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--gradient-gold);">&#9830;</div>
+                    <h2>Today's Topic Question</h2>
+                </div>
+
+                <div class="topic-question-box">
+                    <div class="topic-question-symbol" aria-hidden="true">&#9671;</div>
+                    <p class="topic-question-text">
+                        Think about the last time you said "yes" to something when your body was saying "no." What happened inside you in that moment — and what happened after?
+                    </p>
+                </div>
+
+                <div class="facilitator-note" data-fac>
+                    <strong>Facilitator:</strong> This is the bridge between check-in and content. Give the group 1-2 minutes of silent reflection before inviting sharing. This question targets the felt experience of self-abandonment — which is exactly what FAST skills are designed to prevent. Listen for: body signals that were overridden, guilt, resentment, "I always do this," or shut-down responses. All are entry points for the psychoeducation ahead. Normalize the experience: "If this is familiar, you're in exactly the right place today."
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <label style="display: block; font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.5rem; letter-spacing: 0.03em;">Your reflection (private — only you can see this):</label>
+                    <textarea id="topicReflection" placeholder="Take your time. There's no wrong answer. You can write a word, a sentence, or a paragraph..." style="min-height: 120px;"></textarea>
+                </div>
+
+                <div class="topic-share-options">
+                    <p style="font-family: 'Cinzel', serif; font-size: 0.8rem; color: var(--slate); letter-spacing: 0.04em; margin-bottom: 0.75rem;">Sharing level (choose what feels right):</p>
+                    <div class="share-options-row">
+                        <div class="share-option" onclick="selectShareLevel(this)">
+                            <span class="share-icon">&#9724;</span>
+                            <span class="share-text">Pass</span>
+                        </div>
+                        <div class="share-option" onclick="selectShareLevel(this)">
+                            <span class="share-icon">&#9675;</span>
+                            <span class="share-text">Listen Only</span>
+                        </div>
+                        <div class="share-option" onclick="selectShareLevel(this)">
+                            <span class="share-icon">&#9681;</span>
+                            <span class="share-text">Share Briefly</span>
+                        </div>
+                        <div class="share-option" onclick="selectShareLevel(this)">
+                            <span class="share-icon">&#9679;</span>
+                            <span class="share-text">Share Fully</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dialectic Bridge -->
+                <div class="dialectic-bridge" style="margin-top: 2rem;">
+                    <div class="dialectic-side">
+                        "I can honor my own needs and boundaries"
+                    </div>
+                    <div class="dialectic-and">AND</div>
+                    <div class="dialectic-side">
+                        "I can care deeply about my relationships"
+                    </div>
+                </div>
+
+                <div class="facilitator-note" data-fac>
+                    <strong>Facilitator:</strong> After the dialectic, ask: "How does this both/and land for you today? Does one side feel more natural than the other?" This is diagnostic — those who struggle with boundaries will lean heavily toward caring for relationships. Name that pattern compassionately: "If caring for others comes easily and caring for yourself feels selfish, today's skills are for you."
+                </div>
+
+                <div class="btn-row">
+                    <button class="btn btn-secondary" onclick="nextCheckinStep(3)">&#8592; Back</button>
+                    <button class="btn" onclick="showPage(1)">Begin Learning &#8594;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!--  PAGE 1: LEARN (Psychoed)      -->
+    <!-- ============================== -->
+    <div class="page" id="page-1">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">&#9733;</div>
+                <h2>Self-Respect Effectiveness</h2>
+            </div>
+            <div class="card-desc">
+                Interpersonal effectiveness isn't just about getting what you want or keeping the relationship intact — it's also about maintaining your self-respect. FAST skills help you interact with others in ways that leave your sense of integrity and values intact.
+            </div>
+
+            <div class="facilitator-note" data-fac>
+                <strong>Facilitator:</strong> Frame this as the "often-forgotten third goal." Most people know DEAR MAN (getting objectives) and GIVE (keeping relationships). But FAST is what prevents the resentment that builds when we consistently sacrifice ourselves. Connect to eating disorder recovery: people-pleasing and self-abandonment are often at the root.
+            </div>
+
+            <!-- FAST Overview -->
+            <div class="expandable-section">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                    <span class="expand-arrow">&#9656;</span>
+                    <h3>What Are FAST Skills?</h3>
+                    <span class="header-tag">Overview</span>
+                </div>
+                <div class="expandable-body">
+                    <p>FAST is a DBT acronym for skills that help you maintain self-respect during interpersonal interactions. While DEAR MAN helps you ask for what you want, and GIVE helps you preserve the relationship, <strong>FAST helps you preserve your relationship with yourself.</strong></p>
+                    <div class="key-insight">
+                        The core question FAST addresses: "Will I still feel good about myself after this interaction? Am I acting in alignment with my values?"
+                    </div>
+                    <p>Many people — especially those who tend toward people-pleasing, fawning, or self-abandonment — find that they can get what they want and keep others happy, but at the cost of their own dignity. FAST skills are the antidote to that pattern.</p>
+                </div>
+            </div>
+
+            <!-- F - Fair -->
+            <div class="expandable-section">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                    <span class="expand-arrow">&#9656;</span>
+                    <h3>F — Be Fair</h3>
+                    <span class="header-tag">To yourself and others</span>
+                </div>
+                <div class="expandable-body">
+                    <p><strong>Be fair to yourself AND the other person.</strong> Fairness means validating your own needs with the same weight you give to others'. It means not always putting yourself last — and not bulldozing the other person either.</p>
+                    <div class="key-insight">
+                        Ask yourself: "If a friend told me they were being treated this way, what would I say?" Apply that same compassion inward.
+                    </div>
+                    <p>Fairness is a dialectic. It's not 50/50 in every moment — it's a dynamic balance over time. Sometimes your needs come first. Sometimes theirs do. The key is that <em>both</em> matter.</p>
+                    <div class="body-prompt">
+                        <strong>Body Check:</strong> Where do you feel unfairness in your body? Many people describe a sinking feeling in the stomach, a tightness in the throat, or a caving sensation in the chest when they're not being fair to themselves.
+                    </div>
+                </div>
+            </div>
+
+            <!-- A - Apologies -->
+            <div class="expandable-section">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                    <span class="expand-arrow">&#9656;</span>
+                    <h3>A — No Unnecessary Apologies</h3>
+                    <span class="header-tag">Apologize only when warranted</span>
+                </div>
+                <div class="expandable-body">
+                    <p><strong>Don't over-apologize.</strong> Apologize when you've genuinely caused harm — not for existing, having needs, or taking up space. Chronic apologizing erodes self-respect and signals to others (and to yourself) that your needs are a burden.</p>
+                    <div class="key-insight">
+                        Notice the difference: "I'm sorry I'm bothering you" vs. "I have something I'd like to discuss." The first one frames your needs as an imposition. The second honors both people.
+                    </div>
+                    <p>This doesn't mean never apologizing — it means being intentional about it. A genuine apology is powerful. An automatic, reflexive "sorry" for having needs is self-diminishing.</p>
+                    <p><strong>Common over-apology patterns:</strong></p>
+                    <p style="padding-left: 1rem;">Apologizing for speaking up. Apologizing for saying no. Apologizing for having emotions. Starting emails with "Sorry to bother you." Saying sorry before making a request.</p>
+                    <div class="body-prompt">
+                        <strong>Body Check:</strong> When you hold back an unnecessary apology, what happens in your body? You may notice tension — that's your nervous system adjusting to a new pattern. Breathe into it.
+                    </div>
+                </div>
+            </div>
+
+            <!-- S - Stick to Values -->
+            <div class="expandable-section">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                    <span class="expand-arrow">&#9656;</span>
+                    <h3>S — Stick to Values</h3>
+                    <span class="header-tag">Integrity in action</span>
+                </div>
+                <div class="expandable-body">
+                    <p><strong>Stay true to what matters to you.</strong> Don't abandon your values to please others or to avoid conflict. Your values are your compass — they tell you who you are even when the emotional waters get rough.</p>
+                    <div class="key-insight">
+                        "A boundary is the distance at which I can love you and me simultaneously." When we abandon our values, we lose our footing — and eventually, we lose ourselves.
+                    </div>
+                    <p>Sticking to values isn't rigidity — it's integrity. It means knowing what you stand for and letting that guide your actions, even when pressure mounts to compromise.</p>
+                    <p>Values conflicts are often the source of the deepest interpersonal pain. When someone asks you to act against your values, that's not a request — it's a threat to your identity.</p>
+                    <div class="body-prompt">
+                        <strong>Body Check:</strong> When you're acting in alignment with your values, many people describe a sense of solidity or groundedness — even if the situation is uncomfortable. When you're acting against them, there's often a hollow, off-center feeling. What do you notice?
+                    </div>
+                </div>
+            </div>
+
+            <!-- T - Truthful -->
+            <div class="expandable-section">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                    <span class="expand-arrow">&#9656;</span>
+                    <h3>T — Be Truthful</h3>
+                    <span class="header-tag">Honest and authentic</span>
+                </div>
+                <div class="expandable-body">
+                    <p><strong>Don't lie, exaggerate, or act helpless.</strong> Be honest about what you feel, need, and think. Truthfulness builds trust — with others and with yourself. When we're dishonest to keep the peace, we trade long-term self-respect for short-term comfort.</p>
+                    <div class="key-insight">
+                        Truthfulness in DBT isn't about radical honesty without a filter. It's about not pretending you're fine when you're not. Not agreeing when you disagree. Not performing emotions you don't feel.
+                    </div>
+                    <p><strong>Forms of untruthfulness that erode self-respect:</strong></p>
+                    <p style="padding-left: 1rem;">Saying "I'm fine" when you're not. Agreeing to things you don't want. Minimizing your feelings. Pretending something doesn't bother you. Acting helpless to avoid conflict.</p>
+                    <div class="body-prompt">
+                        <strong>Body Check:</strong> Truthfulness often comes with a felt sense of alignment — like your words and your body are pointing in the same direction. Dishonesty creates a split, a dissonance. Notice which is present for you.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Boundaries Section -->
+            <div class="expandable-section" style="margin-top: 2rem;">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                    <span class="expand-arrow">&#9656;</span>
+                    <h3>Boundaries as Self-Respect in Action</h3>
+                    <span class="header-tag">Integration</span>
+                </div>
+                <div class="expandable-body">
+                    <p>Boundaries aren't walls — they're <strong>the practice of FAST skills made visible.</strong> Every boundary is an act of being fair to yourself (F), not apologizing for your needs (A), staying true to your values (S), and being truthful about your limits (T).</p>
+                    <div class="key-insight">
+                        Boundaries are not about controlling others. They're about communicating what you will and will not participate in. The other person's response to your boundary is information — not a reason to abandon it.
+                    </div>
+
+                    <h4 style="font-family: 'Cinzel', serif; color: var(--ink); margin: 1.5rem 0 0.75rem; font-size: 1rem;">The Boundary Spectrum</h4>
+                    <p>Healthy boundaries exist on a spectrum. Neither extreme serves self-respect:</p>
+                    <div class="spectrum-container">
+                        <div class="spectrum-bar"></div>
+                        <div class="spectrum-labels">
+                            <span>Rigid / Walls</span>
+                            <span style="color: var(--deep-teal); font-weight: 600;">Flexible / Healthy</span>
+                            <span>Porous / None</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem;"><strong>Rigid boundaries</strong> keep everyone out and prevent connection. <strong>Porous boundaries</strong> let everything in and prevent self-preservation. <strong>Healthy boundaries</strong> are flexible — they respond to context while maintaining your core integrity.</p>
+
+                    <div class="body-prompt">
+                        <strong>Body Check:</strong> Imagine a situation where your boundary was crossed. Where in your body do you feel that? Now imagine holding a boundary with confidence. What shifts? This is your body's wisdom about self-respect.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!--  PAGE 2: SKILL CARDS           -->
+    <!-- ============================== -->
+    <div class="page" id="page-2">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">&#9830;</div>
+                <h2>FAST Skill Cards</h2>
+            </div>
+            <div class="card-desc">
+                Tap each card to reveal the deeper practice. Collect the skills that resonate most with where you are today.
+            </div>
+
+            <div class="collection-tracker">
+                <span class="tracker-label">Collected:</span>
+                <div class="tracker-dots">
+                    <div class="tracker-dot" id="dot-0"></div>
+                    <div class="tracker-dot" id="dot-1"></div>
+                    <div class="tracker-dot" id="dot-2"></div>
+                    <div class="tracker-dot" id="dot-3"></div>
+                </div>
+                <span class="tracker-label" id="collect-count">0 / 4</span>
+            </div>
+
+            <div class="facilitator-note" data-fac>
+                <strong>Facilitator:</strong> Give participants 5-7 minutes to explore the cards at their own pace. After collecting, invite sharing: "Which skill did you collect first, and why did it call to you?" This reveals where each person's growth edge is. People often collect the skill they need most — or avoid the one that's hardest.
+            </div>
+
+            <div class="skill-cards-grid">
+                <!-- F Card -->
+                <div class="skill-card" onclick="flipCard(this, 0)">
+                    <div class="collected-badge">&#10003;</div>
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <span class="card-rarity rarity-core">Core</span>
+                            <div class="card-symbol" aria-hidden="true">&#9878;</div>
+                            <div class="card-letter">F</div>
+                            <div class="card-skill-name">Be Fair</div>
+                            <div class="card-skill-short">Honor both your needs and theirs — without losing yourself in the balance.</div>
+                            <div class="flip-hint">Tap to reveal practice &#8594;</div>
+                        </div>
+                        <div class="skill-card-back">
+                            <h4>Practicing Fairness</h4>
+                            <p>Fairness starts with believing your needs have equal weight. Not more, not less — <em>equal.</em></p>
+                            <p>When you notice yourself defaulting to "their needs first," pause. Ask: "What would fair look like here?"</p>
+                            <div class="practice-prompt">
+                                <strong>This Week:</strong> Notice one moment where you put someone else's comfort above your own legitimate need. Don't judge it — just notice it. That awareness is the first step.
+                            </div>
+                            <button class="collect-btn" onclick="event.stopPropagation(); collectCard(0)">Collect This Skill</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- A Card -->
+                <div class="skill-card" onclick="flipCard(this, 1)">
+                    <div class="collected-badge">&#10003;</div>
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <span class="card-rarity rarity-core">Core</span>
+                            <div class="card-symbol" aria-hidden="true">&#9883;</div>
+                            <div class="card-letter">A</div>
+                            <div class="card-skill-name">No Unnecessary Apologies</div>
+                            <div class="card-skill-short">Stop saying sorry for existing. Apologize with intention, not reflex.</div>
+                            <div class="flip-hint">Tap to reveal practice &#8594;</div>
+                        </div>
+                        <div class="skill-card-back">
+                            <h4>Releasing the Reflex</h4>
+                            <p>Every unnecessary "sorry" tells your brain that your needs are a problem. Over time, this rewires self-worth.</p>
+                            <p>Replace "Sorry, but..." with "I'd like to..." — the shift in language rewires the pattern.</p>
+                            <div class="practice-prompt">
+                                <strong>This Week:</strong> Count your apologies for one day. Which were genuine? Which were reflexive? Try replacing one reflexive "sorry" with a direct statement.
+                            </div>
+                            <button class="collect-btn" onclick="event.stopPropagation(); collectCard(1)">Collect This Skill</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- S Card -->
+                <div class="skill-card" onclick="flipCard(this, 2)">
+                    <div class="collected-badge">&#10003;</div>
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <span class="card-rarity rarity-advanced">Advanced</span>
+                            <div class="card-symbol" aria-hidden="true">&#9770;</div>
+                            <div class="card-letter">S</div>
+                            <div class="card-skill-name">Stick to Values</div>
+                            <div class="card-skill-short">Let your values be your compass, even when the storm is loud.</div>
+                            <div class="flip-hint">Tap to reveal practice &#8594;</div>
+                        </div>
+                        <div class="skill-card-back">
+                            <h4>Values as Anchors</h4>
+                            <p>When emotions run high, values are what keep you grounded. They're not rules — they're the truest expression of who you are.</p>
+                            <p>Conflict often asks us to abandon our values. Noticing that pull is half the battle.</p>
+                            <div class="practice-prompt">
+                                <strong>This Week:</strong> Name your three core values. When a difficult moment arises, ask: "Which value can guide me here?" Notice how it changes your response.
+                            </div>
+                            <button class="collect-btn" onclick="event.stopPropagation(); collectCard(2)">Collect This Skill</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- T Card -->
+                <div class="skill-card" onclick="flipCard(this, 3)">
+                    <div class="collected-badge">&#10003;</div>
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <span class="card-rarity rarity-mastery">Mastery</span>
+                            <div class="card-symbol" aria-hidden="true">&#9788;</div>
+                            <div class="card-letter">T</div>
+                            <div class="card-skill-name">Be Truthful</div>
+                            <div class="card-skill-short">Align your words with your inner truth. Stop performing "fine."</div>
+                            <div class="flip-hint">Tap to reveal practice &#8594;</div>
+                        </div>
+                        <div class="skill-card-back">
+                            <h4>The Courage of Honesty</h4>
+                            <p>Truthfulness isn't brutality — it's the refusal to betray yourself. It's saying "this bothers me" instead of smiling through it.</p>
+                            <p>Every time you're honest about your experience, you build trust with yourself. That's the foundation of self-respect.</p>
+                            <div class="practice-prompt">
+                                <strong>This Week:</strong> When someone asks how you are, try answering honestly once. Not a trauma dump — just an honest answer. "I'm a bit tired today" instead of "I'm fine." Notice what happens.
+                            </div>
+                            <button class="collect-btn" onclick="event.stopPropagation(); collectCard(3)">Collect This Skill</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!--  PAGE 3: PRACTICE (Role-Play)  -->
+    <!-- ============================== -->
+    <div class="page" id="page-3">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">&#9654;</div>
+                <h2>Practice Scenarios</h2>
+            </div>
+            <div class="card-desc">
+                Choose a scenario that resonates with your life right now. Practice crafting a FAST-aligned response. Remember: there's no perfect answer — the practice itself is the point.
+            </div>
+
+            <div class="pass-option">
+                <span class="pass-symbol">&#9724;</span>
+                You can work through these alone, with a partner, or simply observe. All levels of engagement are welcome.
+            </div>
+
+            <div class="facilitator-note" data-fac>
+                <strong>Facilitator:</strong> Offer three options for engagement: (1) Write a response individually, (2) Partner role-play where one person is the scenario character and one practices FAST, (3) Group fishbowl where volunteers model the skill while the group observes. Always debrief after: "What was hard about that? What FAST skill did you lean on?"
+            </div>
+
+            <div class="scenario-selector">
+                <div class="scenario-option" onclick="selectScenario(0, this)">
+                    <span class="scenario-tag">Relationships</span>
+                    <h4>The Cancellation</h4>
+                    <p>A close friend keeps cancelling plans last minute. You value the friendship but you're starting to feel unimportant.</p>
+                </div>
+                <div class="scenario-option" onclick="selectScenario(1, this)">
+                    <span class="scenario-tag">Work</span>
+                    <h4>The Extra Assignment</h4>
+                    <p>Your boss asks you to take on a major project when you're already overloaded. Saying no feels risky.</p>
+                </div>
+                <div class="scenario-option" onclick="selectScenario(2, this)">
+                    <span class="scenario-tag">Family</span>
+                    <h4>The Unsolicited Advice</h4>
+                    <p>A family member keeps giving unwanted opinions about your life choices. Their comments undermine your confidence.</p>
+                </div>
+                <div class="scenario-option" onclick="selectScenario(3, this)">
+                    <span class="scenario-tag">Recovery</span>
+                    <h4>The Well-Meaning Comment</h4>
+                    <p>Someone makes a comment about your body or eating that feels triggering, even though they "meant well."</p>
+                </div>
+            </div>
+
+            <!-- Scenario Workspaces -->
+            <div class="scenario-workspace" id="scenario-ws-0">
+                <div class="scenario-scene">
+                    <h4>The Scene</h4>
+                    <p>Your friend texts: "Hey, so sorry but something came up, can we raincheck tonight?" This is the third time this month. You feel a familiar sinking feeling. Part of you wants to say "No worries!" — but it <em>does</em> worry you. Your need for reliability and feeling valued is real.</p>
+                </div>
+                <div class="response-builder">
+                    <label>Which FAST skills will guide your response?</label>
+                    <div class="skill-tags-select">
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">F — Fair</span>
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">A — No Unnecessary Apologies</span>
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">S — Stick to Values</span>
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">T — Truthful</span>
+                    </div>
+                    <label style="margin-top: 1rem;">What would you say or do?</label>
+                    <textarea placeholder="Example: &quot;Hey, I care about our friendship and I want to be honest — I've noticed we've rescheduled a few times and it's starting to affect me. Can we find a time that works for both of us?&quot;"></textarea>
+                    <label style="margin-top: 1rem;">What's the hardest part of this response for you?</label>
+                    <textarea placeholder="The vulnerability? The risk of seeming needy? Being honest about hurt?"></textarea>
+                </div>
+            </div>
+
+            <div class="scenario-workspace" id="scenario-ws-1">
+                <div class="scenario-scene">
+                    <h4>The Scene</h4>
+                    <p>Your boss stops by your desk: "Hey, I know you're busy, but this new project really needs someone reliable. Can you take it on?" You already work late most nights. Your first instinct is to smile and say yes. But your body tightens. Your values of honesty and self-care are whispering.</p>
+                </div>
+                <div class="response-builder">
+                    <label>Which FAST skills will guide your response?</label>
+                    <div class="skill-tags-select">
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">F — Fair</span>
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">A — No Unnecessary Apologies</span>
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">S — Stick to Values</span>
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">T — Truthful</span>
+                    </div>
+                    <label style="margin-top: 1rem;">What would you say or do?</label>
+                    <textarea placeholder="Example: &quot;I appreciate you thinking of me. I want to be honest that my current workload is at capacity. Can we talk about what I could deprioritize to make room for this?&quot;"></textarea>
+                    <label style="margin-top: 1rem;">What's the hardest part of this response for you?</label>
+                    <textarea placeholder="Fear of disappointing? Worry about career impact? Guilt for not being &quot;enough&quot;?"></textarea>
+                </div>
+            </div>
+
+            <div class="scenario-workspace" id="scenario-ws-2">
+                <div class="scenario-scene">
+                    <h4>The Scene</h4>
+                    <p>At a family gathering, your parent says: "You know, if you just tried harder at [thing], your life would be so much easier." They say it with a smile, but it lands like a punch. You've heard this before. The old pattern is to nod, change the subject, and carry the sting home.</p>
+                </div>
+                <div class="response-builder">
+                    <label>Which FAST skills will guide your response?</label>
+                    <div class="skill-tags-select">
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">F — Fair</span>
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">A — No Unnecessary Apologies</span>
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">S — Stick to Values</span>
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">T — Truthful</span>
+                    </div>
+                    <label style="margin-top: 1rem;">What would you say or do?</label>
+                    <textarea placeholder="Example: &quot;I know you care about me, and I appreciate that. I'm actually happy with the direction I'm going. I'd love your support more than advice right now.&quot;"></textarea>
+                    <label style="margin-top: 1rem;">What's the hardest part of this response for you?</label>
+                    <textarea placeholder="Challenging a parent? The fear of conflict? Feeling selfish?"></textarea>
+                </div>
+            </div>
+
+            <div class="scenario-workspace" id="scenario-ws-3">
+                <div class="scenario-scene">
+                    <h4>The Scene</h4>
+                    <p>At lunch with a coworker, they say: "Wow, you look so much healthier now!" or "Are you sure you should be eating that?" They smile warmly. They have no idea how it lands. Your stomach drops. Part of you wants to laugh it off. But your recovery matters more than their comfort.</p>
+                </div>
+                <div class="response-builder">
+                    <label>Which FAST skills will guide your response?</label>
+                    <div class="skill-tags-select">
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">F — Fair</span>
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">A — No Unnecessary Apologies</span>
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">S — Stick to Values</span>
+                        <span class="skill-tag" onclick="toggleSkillTag(this)">T — Truthful</span>
+                    </div>
+                    <label style="margin-top: 1rem;">What would you say or do?</label>
+                    <textarea placeholder="Example: &quot;I know you mean well, and I'd like to ask that we keep comments about bodies and food off the table. It's really important for my wellbeing.&quot;"></textarea>
+                    <label style="margin-top: 1rem;">What's the hardest part of this response for you?</label>
+                    <textarea placeholder="Drawing attention to it? Seeming &quot;too sensitive&quot;? Risking the relationship?"></textarea>
+                </div>
+            </div>
+
+            <div class="facilitator-note" data-fac>
+                <strong>Facilitator:</strong> The recovery scenario is particularly important for CFD adults. Normalize that setting boundaries around body/food comments is an essential recovery skill, not oversensitivity. Validate the difficulty: "It takes enormous courage to set this kind of boundary, especially when the other person doesn't understand why it matters."
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!--  PAGE 4: INTEGRATE             -->
+    <!-- ============================== -->
+    <div class="page" id="page-4">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">&#10022;</div>
+                <h2>Integration &amp; Takeaways</h2>
+            </div>
+            <div class="card-desc">
+                Take a moment to gather what landed for you today. What do you want to carry forward?
+            </div>
+
+            <div class="facilitator-note" data-fac>
+                <strong>Facilitator:</strong> This section works well as a closing circle. Invite each person to share one takeaway or one skill they want to practice this week. Reinforce that progress isn't perfection — it's increased awareness. Close with the breathing exercise below.
+            </div>
+
+            <div class="integration-prompt">
+                <h4>&#9671; One Thing That Landed</h4>
+                <p style="color: var(--slate); margin-bottom: 0.75rem;">What concept, skill, or moment from today resonated most?</p>
+                <textarea id="int-landed" placeholder="The thing that stayed with me was..."></textarea>
+            </div>
+
+            <div class="integration-prompt">
+                <h4>&#9671; My Growth Edge</h4>
+                <p style="color: var(--slate); margin-bottom: 0.75rem;">Which FAST skill feels like your biggest growth area right now?</p>
+                <div class="skill-tags-select" id="growth-tags">
+                    <span class="skill-tag" onclick="toggleSkillTag(this)">F — Fairness to Self</span>
+                    <span class="skill-tag" onclick="toggleSkillTag(this)">A — Releasing Over-Apology</span>
+                    <span class="skill-tag" onclick="toggleSkillTag(this)">S — Sticking to Values</span>
+                    <span class="skill-tag" onclick="toggleSkillTag(this)">T — Being Truthful</span>
+                </div>
+            </div>
+
+            <div class="integration-prompt">
+                <h4>&#9671; My Micro-Commitment</h4>
+                <p style="color: var(--slate); margin-bottom: 0.75rem;">What is one small, specific thing you'll practice this week?</p>
+                <textarea id="int-commitment" placeholder="This week, I will try to..."></textarea>
+            </div>
+
+            <div class="integration-prompt">
+                <h4>&#9671; A Compassionate Reminder</h4>
+                <p style="color: var(--slate); margin-bottom: 0.75rem;">What do you want to tell yourself when setting boundaries feels hard?</p>
+                <textarea id="int-reminder" placeholder="When it feels hard, I'll remember that..."></textarea>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn" onclick="generateTakeaway()">Generate My Takeaway</button>
+                <button class="btn btn-secondary" onclick="clearIntegration()">Start Fresh</button>
+            </div>
+
+            <div class="takeaway-card" id="takeaway-result">
+                <!-- Generated dynamically -->
+            </div>
+
+            <!-- Closing -->
+            <div style="margin-top: 2.5rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(212, 165, 116, 0.06) 0%, rgba(135, 168, 120, 0.06) 100%); border-radius: 16px; text-align: center;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.75rem; opacity: 0.5;">&#9671; &#9674; &#9671;</div>
+                <p style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 0.5rem;">Closing Intention</p>
+                <p style="color: var(--slate); font-style: italic; line-height: 1.7; max-width: 600px; margin: 0 auto;">
+                    "May I have the courage to stand in my worth. May I honor my needs without apology. May I hold my values even when it's difficult. May I be truthful with myself and others."
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // ===========================
+    // State
+    // ===========================
+    let facilitatorMode = false;
+    let collectedCards = [false, false, false, false];
+    let currentCheckinStep = 0;
+    let breathingActive = false;
+    let breathCount = 0;
+    let breathInterval = null;
+
+    // ===========================
+    // Navigation
+    // ===========================
+    function showPage(index) {
+        document.querySelectorAll('.page').forEach((p, i) => {
+            p.classList.toggle('active', i === index);
+        });
+        document.querySelectorAll('.nav-pill').forEach((p, i) => {
+            p.classList.toggle('active', i === index);
+            p.setAttribute('aria-selected', i === index);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ===========================
+    // Check-In Step Navigation
+    // ===========================
+    function nextCheckinStep(step) {
+        // Hide all panels
+        document.querySelectorAll('.checkin-panel').forEach(p => p.classList.remove('active'));
+        // Show target
+        const panel = document.getElementById('ci-panel-' + step);
+        if (panel) panel.classList.add('active');
+
+        // Update step dots
+        document.querySelectorAll('.ci-dot').forEach((dot, i) => {
+            dot.classList.remove('active');
+            dot.classList.toggle('complete', i < step);
+            if (i === step) dot.classList.add('active');
+        });
+        document.querySelectorAll('.ci-label').forEach((label, i) => {
+            label.classList.remove('active');
+            label.classList.toggle('complete', i < step);
+            if (i === step) label.classList.add('active');
+        });
+
+        currentCheckinStep = step;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ===========================
+    // Breathing Exercise
+    // ===========================
+    function startBreathing() {
+        if (breathingActive) return;
+        breathingActive = true;
+        breathCount = 0;
+
+        const circle = document.getElementById('breathCircle');
+        const text = document.getElementById('breathText');
+        const instruction = document.getElementById('breathInstruction');
+        circle.classList.add('breathing');
+
+        const phases = ['Breathe In...', 'Hold...', 'Breathe Out...', 'Rest...'];
+        const durations = [2000, 2000, 2000, 2000]; // 8s total cycle
+        let phaseIndex = 0;
+        let cycles = 0;
+
+        function runPhase() {
+            if (cycles >= 3) {
+                // Done
+                circle.classList.remove('breathing');
+                text.textContent = 'Well Done';
+                instruction.textContent = 'Three breaths complete. Notice how you feel.';
+                breathingActive = false;
+                clearTimeout(breathInterval);
+                return;
+            }
+
+            text.textContent = phases[phaseIndex];
+
+            if (phaseIndex === 0) {
+                instruction.textContent = 'Breath ' + (cycles + 1) + ' of 3';
+            }
+
+            breathInterval = setTimeout(() => {
+                phaseIndex++;
+                if (phaseIndex >= phases.length) {
+                    phaseIndex = 0;
+                    cycles++;
+                }
+                runPhase();
+            }, durations[phaseIndex]);
+        }
+
+        runPhase();
+    }
+
+    // ===========================
+    // Body Scan
+    // ===========================
+    function toggleBodyArea(el) {
+        el.classList.toggle('selected');
+    }
+
+    // ===========================
+    // Zone Selector
+    // ===========================
+    function selectZone(el, zone) {
+        document.querySelectorAll('.zone-option').forEach(z => z.classList.remove('selected'));
+        el.classList.add('selected');
+    }
+
+    // ===========================
+    // Weather Check-In
+    // ===========================
+    function selectWeather(el) {
+        document.querySelectorAll('.weather-option').forEach(o => o.classList.remove('selected'));
+        el.classList.add('selected');
+    }
+
+    // ===========================
+    // Share Level
+    // ===========================
+    function selectShareLevel(el) {
+        document.querySelectorAll('.share-option').forEach(o => o.classList.remove('selected'));
+        el.classList.add('selected');
+    }
+
+    // ===========================
+    // Facilitator Toggle
+    // ===========================
+    function toggleFacilitator() {
+        facilitatorMode = !facilitatorMode;
+        const toggle = document.getElementById('facToggle');
+        toggle.classList.toggle('on', facilitatorMode);
+        toggle.setAttribute('aria-checked', facilitatorMode);
+        document.querySelectorAll('.facilitator-note').forEach(note => {
+            note.classList.toggle('show', facilitatorMode);
+        });
+    }
+
+    // ===========================
+    // Expandable Sections
+    // ===========================
+    function toggleExpand(header) {
+        const body = header.nextElementSibling;
+        const arrow = header.querySelector('.expand-arrow');
+        const isOpen = body.classList.contains('open');
+
+        body.classList.toggle('open', !isOpen);
+        header.classList.toggle('open', !isOpen);
+        arrow.classList.toggle('rotated', !isOpen);
+    }
+
+    // ===========================
+    // Skill Cards
+    // ===========================
+    function flipCard(card, index) {
+        card.classList.toggle('flipped');
+    }
+
+    function collectCard(index) {
+        const cards = document.querySelectorAll('.skill-card');
+        if (collectedCards[index]) {
+            collectedCards[index] = false;
+            cards[index].classList.remove('collected');
+        } else {
+            collectedCards[index] = true;
+            cards[index].classList.add('collected');
+        }
+
+        const count = collectedCards.filter(Boolean).length;
+        document.getElementById('collect-count').textContent = count + ' / 4';
+        collectedCards.forEach((c, i) => {
+            document.getElementById('dot-' + i).classList.toggle('filled', c);
+        });
+
+        const btn = cards[index].querySelector('.collect-btn');
+        btn.textContent = collectedCards[index] ? 'Collected \u2713' : 'Collect This Skill';
+        btn.classList.toggle('collected-state', collectedCards[index]);
+    }
+
+    // ===========================
+    // Scenarios
+    // ===========================
+    function selectScenario(index, el) {
+        document.querySelectorAll('.scenario-option').forEach(o => o.classList.remove('selected'));
+        el.classList.add('selected');
+
+        document.querySelectorAll('.scenario-workspace').forEach(ws => ws.classList.remove('active'));
+        const workspace = document.getElementById('scenario-ws-' + index);
+        if (workspace) {
+            workspace.classList.add('active');
+            setTimeout(() => {
+                workspace.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+    }
+
+    // ===========================
+    // Skill Tags
+    // ===========================
+    function toggleSkillTag(tag) {
+        tag.classList.toggle('selected');
+    }
+
+    // ===========================
+    // Integration
+    // ===========================
+    function generateTakeaway() {
+        const landed = document.getElementById('int-landed').value;
+        const commitment = document.getElementById('int-commitment').value;
+        const reminder = document.getElementById('int-reminder').value;
+
+        const growthTags = document.querySelectorAll('#growth-tags .skill-tag.selected');
+        const growthAreas = Array.from(growthTags).map(t => t.textContent.trim());
+
+        if (!landed && !commitment) {
+            alert('Please share at least one takeaway or commitment to generate your summary.');
+            return;
+        }
+
+        const collected = collectedCards.map((c, i) => {
+            const names = ['Be Fair', 'No Unnecessary Apologies', 'Stick to Values', 'Be Truthful'];
+            return c ? names[i] : null;
+        }).filter(Boolean);
+
+        const result = document.getElementById('takeaway-result');
+        result.innerHTML = `
+            <h4>&#10022; Your Session Takeaway</h4>
+            ${landed ? `<p><strong>What resonated:</strong> ${landed}</p>` : ''}
+            ${growthAreas.length ? `<p><strong>Growth edge:</strong> ${growthAreas.join(', ')}</p>` : ''}
+            ${commitment ? `<p><strong>This week's practice:</strong> ${commitment}</p>` : ''}
+            ${reminder ? `<p><strong>Self-compassion reminder:</strong> <em>"${reminder}"</em></p>` : ''}
+            ${collected.length ? `<p><strong>Skills collected:</strong> ${collected.join(', ')}</p>` : ''}
+            <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(94, 234, 212, 0.06); border-radius: 10px; border-left: 3px solid var(--deep-teal);">
+                <p style="font-style: italic; font-size: 0.95rem;">Remember: Every time you practice a FAST skill — even imperfectly — you're building a stronger relationship with yourself. That's the foundation everything else rests on.</p>
+            </div>
+        `;
+        result.classList.add('show');
+        result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function clearIntegration() {
+        if (confirm('Clear all integration responses?')) {
+            document.getElementById('int-landed').value = '';
+            document.getElementById('int-commitment').value = '';
+            document.getElementById('int-reminder').value = '';
+            document.querySelectorAll('#growth-tags .skill-tag').forEach(t => t.classList.remove('selected'));
+            document.getElementById('takeaway-result').classList.remove('show');
+        }
+    }
+</script>
+</body>
+</html>
